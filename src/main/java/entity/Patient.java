@@ -19,6 +19,9 @@ public class Patient {
     private String firstName;
     private Category healCareCategory;
 
+    private final static List<Patient> randomPatients = generateRandomPatients();
+
+
     public Patient(Category healCareCategory) {
         this.lastName = faker.name().lastName();
         this.firstName = faker.name().firstName();
@@ -68,6 +71,9 @@ public class Patient {
         return randomPatients;
     }
 
+    public static List<Patient> getRandomPatients() {
+        return randomPatients;
+    }
 
     public boolean hasCoverage(String coverageName) {
         LOGGER.info("Checking for coverage of " + coverageName + " for the patient " + this.firstName);
@@ -77,6 +83,7 @@ public class Patient {
 
         return false;
     }
+
 
     public boolean isActive() {
         return isActive;

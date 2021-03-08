@@ -10,13 +10,10 @@ import java.util.List;
 
 public class CoverageService implements ICoverageService {
 
-    App app = new App();
 
-    private List<Patient> patients = app.getPatients();
+    private List<Patient> patients = Patient.getRandomPatients();
 
-    public List<Patient> getPatients() {
-        return this.patients;
-    }
+
 
     @Override
     public boolean patientHasCoverage(String patientName, String coverageName) {

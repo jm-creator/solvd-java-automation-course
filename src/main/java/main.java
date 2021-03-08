@@ -16,12 +16,13 @@ public class main {
         String name = "Hyatt";
         String area = "Maternal";
 
-        CoverageService app = new CoverageService();
+
+        App app = new App();
 
 
         LOGGER.info("Printing coverage " + area + " for patient " + name + " ...");
 
-        if (app.patientHasCoverage(name, area)) {
+        if (app.getICoverageService().patientHasCoverage(name, area)) {
             LOGGER.info("Patient " + name + " has coverage for " + area);
         } else {
             LOGGER.info("Patient " + name + " doesn't have coverage for " + area);
@@ -29,9 +30,15 @@ public class main {
 
         LOGGER.info("Printing coverage list for patient " + name);
 
-        LOGGER.info(app.listHealCareCoverage(name));
+        LOGGER.info(app.getICoverageService().listHealCareCoverage(name));
 
-        LOGGER.info(app.getPatients());
+        LOGGER.info("List of patients : " + app.getPatientList());
+
+
+        LOGGER.info("List of ACTIVE patients : " + app.getIActiveService().filterByActiveUser());
+
+
+
 
     }
 }
