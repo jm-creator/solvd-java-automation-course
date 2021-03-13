@@ -2,6 +2,7 @@ package services;
 
 import entity.App;
 import entity.Patient;
+import exceptions.PatientNotFoundException;
 import interfaces.IActiveService;
 
 import java.util.ArrayList;
@@ -9,11 +10,11 @@ import java.util.List;
 
 public class ActiveService implements IActiveService {
 
-    private List<Patient> patients = Patient.getRandomPatients();
+    private final List<Patient> patients = App.getRandomPatients();
 
 
     @Override
-    public boolean patientIsActive(String patientName) {
+    public boolean patientIsActive(String patientName) throws PatientNotFoundException {
         for (Patient patient: patients) {
             if (patient.isActive())
                 return true;

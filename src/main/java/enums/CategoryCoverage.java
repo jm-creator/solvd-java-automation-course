@@ -2,6 +2,7 @@ package enums;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public enum CategoryCoverage {
     //BASE
@@ -15,10 +16,8 @@ public enum CategoryCoverage {
     HOSPITAL_THERAPY("Full hospital therapy", "Therapy"),
     EMERGENCIES("Emergencies and Urgencies", "24hs Urgencies"),
 
-
-
     //PRO
-    DOCTOR_AT_HOME("Doctor at home", "24 hs Doctor at Home"),
+    DOCTOR_AT_HOME("Doctor at home", "24hs Doctor at Home"),
     INTERNATIONAL_COVERAGE("International coverage", "Full International"),
     PLASTIC_SURGERY("Plastic surgery", "1");
 
@@ -30,37 +29,55 @@ public enum CategoryCoverage {
         this.desc = desc;
     }
 
+
+    public static List<CategoryCoverage> getBaseCoverage() {
+        List<CategoryCoverage> coverages = new ArrayList<>();
+        coverages.add(MATERNAL);
+        coverages.add(OPTICAL);
+        coverages.add(ORTHODONTICS);
+        coverages.add(PSYCHOLOGY);
+        coverages.add(KINESIOLOGY);
+        return coverages;
+    }
+
+    public static List<CategoryCoverage> getMediumCoverage() {
+        List<CategoryCoverage> coverages = new ArrayList<>();
+        coverages.addAll(getBaseCoverage());
+        coverages.add(HOSPITAL_THERAPY);
+        coverages.add(EMERGENCIES);
+        return coverages;
+    }
+
+    public static List<CategoryCoverage> getPremiumCoverage() {
+        List<CategoryCoverage> coverages = new ArrayList<>();
+        coverages.addAll(getBaseCoverage());
+        coverages.addAll(getMediumCoverage());
+        coverages.add(DOCTOR_AT_HOME);
+        coverages.add(INTERNATIONAL_COVERAGE);
+        coverages.add(PLASTIC_SURGERY);
+        return coverages;
+    }
+
     public String getName() {
         return this.name;
     }
 
-    public static List<CategoryCoverage> getBaseCoverage() {
-        List<CategoryCoverage> aux = new ArrayList<>();
-        aux.add(MATERNAL);
-        aux.add(OPTICAL);
-        aux.add(ORTHODONTICS);
-        aux.add(PSYCHOLOGY);
-        aux.add(KINESIOLOGY);
-        return aux;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public static List<CategoryCoverage> getMediumCoverage() {
-    List<CategoryCoverage> aux = new ArrayList<>();
-        aux.addAll(getBaseCoverage());
-        aux.add(HOSPITAL_THERAPY);
-        aux.add(EMERGENCIES);
-    return aux;
+    public String getDesc() {
+        return desc;
     }
 
-    public static List<CategoryCoverage> getPremiumCoverage() {
-        List<CategoryCoverage> aux = new ArrayList<>();
-        aux.addAll(getBaseCoverage());
-        aux.addAll(getMediumCoverage());
-        aux.add(DOCTOR_AT_HOME);
-        aux.add(INTERNATIONAL_COVERAGE);
-        aux.add(PLASTIC_SURGERY);
-        return aux;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
+
+    public static CategoryCoverage getRandomCoverage() {
+        return CategoryCoverage.values()[new Random().nextInt(CategoryCoverage.values().length)];
+    }
+
 }
 
 

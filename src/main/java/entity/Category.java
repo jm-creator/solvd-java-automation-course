@@ -6,11 +6,12 @@ import org.apache.log4j.Logger;
 
 import java.util.List;
 
-public class Category {
+public abstract class  Category {
     private static final Logger LOGGER = Logger.getLogger(Category.class);
-    private String name;
-    private float price;
-    private List<CategoryCoverage> coverage;
+
+    private final String name;
+    private final float price;
+    private final List<CategoryCoverage> coverage;
 
     public Category(String name, Float price, List<CategoryCoverage> categoryCoverage) {
         //LOGGER.info("Initializing Heal Care Category");
@@ -28,23 +29,9 @@ public class Category {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
     public List<CategoryCoverage> getCoverage() {
         return coverage;
     }
 
-    public void setCoverage(List<CategoryCoverage> coverage) {
-        this.coverage = coverage;
-    }
+
 }

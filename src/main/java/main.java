@@ -1,6 +1,12 @@
 import entity.App;
+import entity.BaseCategory;
+import entity.Category;
 import entity.Patient;
 import enums.Categories;
+import enums.CategoryCoverage;
+import exceptions.CategoryNotFoundException;
+import exceptions.InvalidCoverageException;
+import exceptions.PatientNotFoundException;
 import org.apache.log4j.Logger;
 import services.ActiveService;
 import services.CoverageService;
@@ -13,31 +19,33 @@ public class main {
 
     public static void main(String[] args) {
 
-        String name = "Hyatt";
-        String area = "Maternal";
-
-
         App app = new App();
+        Patient patient = app.getPatientList().get(0);
+        String name = patient.getFirstName();
+        String lastName = patient.getLastName();
+        String coverage = CategoryCoverage.getRandomCoverage().getName();
 
+        try {
+            if (!app.getIActiveService().patientIsActive(name)) {
+                LOGGER.info("patient " + name+" "+lastName + " is NOT active!");
+            } else LOGGER.info("patient " + name +" "+lastName + " is active");
+        } catch (PatientNotFoundException e) {
+            e.printStackTrace();
+        }
+        LOGGER.info("Printing coverage " + coverage + " for patient " + name +" "+lastName + " ...");
 
-        LOGGER.info("Printing coverage " + area + " for patient " + name + " ...");
-
-        if (app.getICoverageService().patientHasCoverage(name, area)) {
-            LOGGER.info("Patient " + name + " has coverage for " + area);
-        } else {
-            LOGGER.info("Patient " + name + " doesn't have coverage for " + area);
+        try {
+            if (app.getICoverageService().patientHasCoverage(name, coverage))
+                LOGGER.info("Patient " + name +" "+lastName + " has coverage for " + coverage);
+            else
+                LOGGER.info("Patient " + name+" "+lastName + " doesn't have coverage for " + coverage);
+        } catch (InvalidCoverageException e) {
+            e.printStackTrace();
         }
 
-        LOGGER.info("Printing coverage list for patient " + name);
-
         LOGGER.info(app.getICoverageService().listHealCareCoverage(name));
-
-        LOGGER.info("List of patients : " + app.getPatientList());
-
-
-        LOGGER.info("List of ACTIVE patients : " + app.getIActiveService().filterByActiveUser());
-
-
+        LOGGER.info("\n Patients : \n" + app.getPatientList());
+        LOGGER.info("\n Active patients : \n" + app.getIActiveService().filterByActiveUser());
 
 
     }
