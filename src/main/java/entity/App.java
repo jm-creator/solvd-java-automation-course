@@ -1,20 +1,25 @@
 package entity;
-
-import interfaces.IActiveService;
-import interfaces.ICoverageService;
+import interfaces.IActive;
+import interfaces.IActivePatients;
+import interfaces.ICoverage;
 import enums.Categories;
 import enums.CategoryCoverage;
+import interfaces.IHealCareCoverage;
 import org.apache.log4j.Logger;
+import services.ActivePatientsService;
 import services.ActiveService;
 import services.CoverageService;
+import services.HealCoverageService;
 import java.util.ArrayList;
 import java.util.List;
 
 public class App {
 
     private static final Logger LOGGER = Logger.getLogger(Patient.class);
-    ICoverageService iCoverageService;
-    IActiveService iActiveService;
+    ICoverage iCoverageService;
+    IActive iActiveService;
+    IActivePatients iActivePatients;
+    IHealCareCoverage iHealCareCoverage;
 
 
 
@@ -23,6 +28,8 @@ public class App {
     public App() {
         this.iActiveService = new ActiveService();
         this.iCoverageService = new CoverageService();
+        this.iActivePatients = new ActivePatientsService();
+        this.iHealCareCoverage = new HealCoverageService();
     }
 
     public static List<Patient> generateRandomPatients() {
@@ -59,13 +66,22 @@ public class App {
         return randomPatients;
     }
 
-    public ICoverageService getICoverageService() {
+    public ICoverage getICoverageService() {
         return iCoverageService;
     }
 
-    public IActiveService getIActiveService() {
+    public IActive getIActiveService() {
         return this.iActiveService;
     }
+
+    public IActivePatients getIActivePatients() {
+        return iActivePatients;
+    }
+
+    public IHealCareCoverage getIHealCareCoverage() {
+        return iHealCareCoverage;
+    }
+
 
 
 }

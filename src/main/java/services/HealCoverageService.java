@@ -3,29 +3,13 @@ package services;
 import entity.App;
 import entity.Patient;
 import enums.CategoryCoverage;
-import exceptions.InvalidCoverageException;
-import interfaces.ICoverage;
+import interfaces.IHealCareCoverage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CoverageService implements ICoverage {
-
-
+public class HealCoverageService implements IHealCareCoverage {
     private final List<Patient> patients = App.getRandomPatients();
-
-
-    @Override
-    public boolean patientHasCoverage(String patientFirstName, String coverageName) {
-        List <String> list = listHealCareCoverage(patientFirstName);
-        for(String coverage : list) {
-            if(coverage.equals(coverageName)){
-                return true;
-            }
-        }
-        return  false;
-    }
-
     @Override
     public List<String> listHealCareCoverage(String patientName) {
         for (Patient patient : patients) {
@@ -39,6 +23,4 @@ public class CoverageService implements ICoverage {
         }
         return null;
     }
-
-
 }

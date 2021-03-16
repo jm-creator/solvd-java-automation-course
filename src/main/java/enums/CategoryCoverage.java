@@ -11,11 +11,9 @@ public enum CategoryCoverage {
     ORTHODONTICS("Orthodontics", "Orthodontics plan"),
     PSYCHOLOGY("Psychology", "Psychology plan"),
     KINESIOLOGY("Kinesiology", "Kinesiology plan"),
-
     //MEDIUM
     HOSPITAL_THERAPY("Full hospital therapy", "Therapy"),
     EMERGENCIES("Emergencies and Urgencies", "24hs Urgencies"),
-
     //PRO
     DOCTOR_AT_HOME("Doctor at home", "24hs Doctor at Home"),
     INTERNATIONAL_COVERAGE("International coverage", "Full International"),

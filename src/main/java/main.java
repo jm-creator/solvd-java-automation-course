@@ -27,8 +27,8 @@ public class main {
 
         try {
             if (!app.getIActiveService().patientIsActive(name)) {
-                LOGGER.info("patient " + name+" "+lastName + " is NOT active!");
-            } else LOGGER.info("patient " + name +" "+lastName + " is active");
+                LOGGER.info("patient " + name+" "+lastName+ " is NOT active!");
+            } else LOGGER.info("patient " + name +" "+lastName+ " is active");
         } catch (PatientNotFoundException e) {
             e.printStackTrace();
         }
@@ -43,9 +43,9 @@ public class main {
             e.printStackTrace();
         }
 
-        LOGGER.info(app.getICoverageService().listHealCareCoverage(name));
+        LOGGER.info(app.getIHealCareCoverage().listHealCareCoverage(name));
         LOGGER.info("\n Patients : \n" + app.getPatientList());
-        LOGGER.info("\n Active patients : \n" + app.getIActiveService().filterByActiveUser());
+        LOGGER.info("\n Active patients : \n" + app.getIActivePatients().filterByActiveUser());
 
 
     }
