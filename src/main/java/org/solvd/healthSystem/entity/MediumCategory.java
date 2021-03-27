@@ -1,11 +1,11 @@
-package entity;
+package org.solvd.healthSystem.entity;
 
-import enums.Categories;
-import enums.CategoryCoverage;
+import org.solvd.healthSystem.enums.Categories;
+import org.solvd.healthSystem.enums.CategoryCoverage;
 
 import java.util.List;
 
-public class MediumCategory extends Category{
+public class MediumCategory extends Category {
     private final float price;
     private String name;
     private List<CategoryCoverage> mediumCategory;
@@ -13,7 +13,7 @@ public class MediumCategory extends Category{
     public MediumCategory(String name, Float price, List<CategoryCoverage> categoryCoverage) {
         super(name, price, categoryCoverage);
         this.name = Categories.MEDIUM.getName();
-        this.price = Categories.MEDIUM .getPrice();
+        this.price = Categories.MEDIUM.getPrice();
         this.mediumCategory = CategoryCoverage.getMediumCoverage();
     }
 

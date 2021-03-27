@@ -1,7 +1,6 @@
-package entity;
+package org.solvd.healthSystem.entity;
 
-import com.github.javafaker.Cat;
-import enums.CategoryCoverage;
+import org.solvd.healthSystem.enums.CategoryCoverage;
 import org.apache.log4j.Logger;
 
 import java.util.List;

@@ -1,25 +1,26 @@
-package entity;
-import interfaces.IActive;
-import interfaces.IActivePatients;
-import interfaces.ICoverage;
-import enums.Categories;
-import enums.CategoryCoverage;
-import interfaces.IHealCareCoverage;
+package org.solvd.healthSystem.entity;
+import org.solvd.healthSystem.enums.Categories;
+import org.solvd.healthSystem.enums.CategoryCoverage;
+import org.solvd.healthSystem.interfaces.IActive;
+import org.solvd.healthSystem.interfaces.IActivePatients;
+import org.solvd.healthSystem.interfaces.ICoverage;
+import org.solvd.healthSystem.interfaces.IHealCareCoverage;
+import org.solvd.healthSystem.services.ActivePatientsService;
+import org.solvd.healthSystem.services.ActiveService;
+import org.solvd.healthSystem.services.CoverageService;
+import org.solvd.healthSystem.services.HealCoverageService;
 import org.apache.log4j.Logger;
-import services.ActivePatientsService;
-import services.ActiveService;
-import services.CoverageService;
-import services.HealCoverageService;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class App {
 
-    private static final Logger LOGGER = Logger.getLogger(Patient.class);
-    ICoverage iCoverageService;
-    IActive iActiveService;
-    IActivePatients iActivePatients;
-    IHealCareCoverage iHealCareCoverage;
+   private static final Logger LOGGER = Logger.getLogger(Patient.class);
+   private ICoverage iCoverageService;
+   private IActive iActiveService;
+   private IActivePatients iActivePatients;
+   private IHealCareCoverage iHealCareCoverage;
 
 
 
@@ -56,6 +57,11 @@ public class App {
             }
         }
         return randomPatients;
+    }
+
+    public Patient getPatient() {
+        Patient patient = getPatientList().get(0);
+        return patient;
     }
 
     public static List<Patient> getRandomPatients() {

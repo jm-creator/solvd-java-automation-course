@@ -1,4 +1,4 @@
-package entity;
+package org.solvd.healthSystem.entity;
 
 public abstract class Person {
     private String firstName;

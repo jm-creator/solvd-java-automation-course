@@ -1,4 +1,4 @@
-package exceptions;
+package org.solvd.healthSystem.exceptions;
 
 public class CategoryNotFoundException extends Exception {
     public CategoryNotFoundException() {

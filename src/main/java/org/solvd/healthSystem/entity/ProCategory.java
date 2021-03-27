@@ -1,11 +1,11 @@
-package entity;
+package org.solvd.healthSystem.entity;
 
-import enums.Categories;
-import enums.CategoryCoverage;
+import org.solvd.healthSystem.enums.Categories;
+import org.solvd.healthSystem.enums.CategoryCoverage;
 
 import java.util.List;
 
-public class ProCategory extends Category{
+public class ProCategory extends Category {
     private final Float price;
 
 
