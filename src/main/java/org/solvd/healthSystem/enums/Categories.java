@@ -1,4 +1,4 @@
-package enums;
+package org.solvd.healthSystem.enums;
 
 import java.util.Random;
 
@@ -24,10 +24,6 @@ public enum Categories {
     public Float getPrice() {
         return this.price;
     }
-
-    public void setName(String name) { this.name = name; }
-
-    public void setPrice(Float price) { this.price = price; }
 
     public static Categories randomCategory() {
         return Categories.values()[new Random().nextInt(Categories.values().length)];

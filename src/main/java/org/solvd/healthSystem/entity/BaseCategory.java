@@ -1,7 +1,7 @@
-package entity;
+package org.solvd.healthSystem.entity;
 
-import enums.Categories;
-import enums.CategoryCoverage;
+import org.solvd.healthSystem.enums.Categories;
+import org.solvd.healthSystem.enums.CategoryCoverage;
 
 import java.util.List;
 

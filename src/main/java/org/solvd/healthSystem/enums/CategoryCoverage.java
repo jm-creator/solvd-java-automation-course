@@ -1,4 +1,4 @@
-package enums;
+package org.solvd.healthSystem.enums;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,17 +60,10 @@ public enum CategoryCoverage {
         return this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getDesc() {
         return desc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
 
     public static CategoryCoverage getRandomCoverage() {
         return CategoryCoverage.values()[new Random().nextInt(CategoryCoverage.values().length)];

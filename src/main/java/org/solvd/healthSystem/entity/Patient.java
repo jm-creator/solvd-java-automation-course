@@ -1,12 +1,8 @@
-package entity;
+package org.solvd.healthSystem.entity;
 
 import com.github.javafaker.Faker;
-import enums.Categories;
-import enums.CategoryCoverage;
 import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Patient extends Person{
@@ -20,6 +16,7 @@ public class Patient extends Person{
     private Category healCareCategory;
     private int idNumber;
 
+    
 
     public Patient(Category healCareCategory) {
         this.lastName = faker.name().lastName();

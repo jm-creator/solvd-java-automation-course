@@ -1,4 +1,4 @@
-package interfaces;
+package org.solvd.healthSystem.interfaces;
 import java.util.List;
 
 
