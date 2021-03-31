@@ -18,23 +18,17 @@ public class CoverageService implements ICoverage {
 
 
     @Override
-    public boolean patientHasCoverage(String patientFirstName, String coverageName) {
-        List <String> list = listHealCareCoverage(patientFirstName);
-        for(String coverage : list) {
-            if(coverage.equals(coverageName)){
-                return true;
-            }
-        }
-        try {
+    public boolean patientHasCoverage(String patientFirstName, String coverageName) throws PatientNotFoundException, InvalidCoverageException {
+        List <String> patientCoverage = listHealCareCoverage(patientFirstName);
+
+        if (patientCoverage.contains(coverageName))
+            return true;
+        else
             throw new InvalidCoverageException();
-        } catch (InvalidCoverageException e) {
-            LOGGER.error(e.getMessage());
-        }
-        return  false;
     }
 
     @Override
-    public List<String> listHealCareCoverage(String patientName) {
+    public List<String> listHealCareCoverage(String patientName) throws PatientNotFoundException {
         for (Patient patient : patients) {
             if (patient.getFirstName().equals(patientName)) {
                 List<String> list = new ArrayList<>();
@@ -44,12 +38,7 @@ public class CoverageService implements ICoverage {
                 return list;
             }
         }
-        try {
-            throw new PatientNotFoundException();
-        } catch (PatientNotFoundException e) {
-            LOGGER.error(e.getMessage());
-        }
-        return null;
+        throw new PatientNotFoundException();
     }
 
 

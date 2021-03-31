@@ -14,15 +14,13 @@ public class ActiveService implements IActive {
 
 
     @Override
-    public boolean patientIsActive(String patientName) {
+    public boolean patientIsActive(String patientName) throws PatientNotActiveException {
         for (Patient patient: patients) {
             if (patient.isActive())
                 return true;
-        }
-        try {
-            throw new PatientNotActiveException();
-        } catch (PatientNotActiveException e) {
-            LOGGER.error(e.getMessage());
+            else
+                throw new PatientNotActiveException();
+
         }
         return false;
     }

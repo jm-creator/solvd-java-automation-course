@@ -13,6 +13,7 @@ import java.util.List;
 public class HealCoverageService implements IHealCareCoverage {
     private static final Logger LOGGER = Logger.getLogger(HealCoverageService.class);
     private final List<Patient> patients = App.getRandomPatients();
+
     @Override
     public List<String> listHealCareCoverage(String patientName) {
         for (Patient patient : patients) {
@@ -24,11 +25,6 @@ public class HealCoverageService implements IHealCareCoverage {
                 }
                 return list;
             }
-        }
-        try {
-            throw new PatientNotFoundException();
-        } catch (PatientNotFoundException e) {
-           LOGGER.error(e.getMessage());
         }
         return null;
     }

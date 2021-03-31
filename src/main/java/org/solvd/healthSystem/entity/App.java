@@ -1,4 +1,5 @@
 package org.solvd.healthSystem.entity;
+
 import org.solvd.healthSystem.enums.Categories;
 import org.solvd.healthSystem.enums.CategoryCoverage;
 import org.solvd.healthSystem.interfaces.IActive;
@@ -9,8 +10,8 @@ import org.solvd.healthSystem.services.ActivePatientsService;
 import org.solvd.healthSystem.services.ActiveService;
 import org.solvd.healthSystem.services.CoverageService;
 import org.solvd.healthSystem.services.HealCoverageService;
-import org.apache.log4j.Logger;
 
+import org.apache.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,8 +52,8 @@ public class App {
                     mediumCategory = new MediumCategory(category.getName(), category.getPrice(), CategoryCoverage.getMediumCoverage());
                     randomPatients.add(new Patient(mediumCategory));
                 case "PRO":
-                    ProCategory proCategory;
-                    proCategory = new ProCategory(category.getName(), category.getPrice(), CategoryCoverage.getPremiumCoverage());
+                    PremiumCategory proCategory;
+                    proCategory = new PremiumCategory(category.getName(), category.getPrice(), CategoryCoverage.getPremiumCoverage());
                     randomPatients.add(new Patient(proCategory));
             }
         }

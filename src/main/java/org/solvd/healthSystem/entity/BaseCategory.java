@@ -5,7 +5,7 @@ import org.solvd.healthSystem.enums.CategoryCoverage;
 
 import java.util.List;
 
-public class BaseCategory extends Category{
+public class BaseCategory extends Category {
     private final float price;
     private String name;
     private List<CategoryCoverage> baseCategory;
