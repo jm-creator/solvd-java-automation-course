@@ -14,6 +14,7 @@ public class ActiveService implements IActive {
 
 
     @Override
+<<<<<<< HEAD
     public boolean patientIsActive(String patientName) throws PatientNotActiveException {
         for (Patient patient: patients) {
             if (patient.isActive())
@@ -21,6 +22,17 @@ public class ActiveService implements IActive {
             else
                 throw new PatientNotActiveException();
 
+=======
+    public boolean patientIsActive(String patientName) {
+        for (Patient patient: patients) {
+            if (patient.isActive())
+                return true;
+        }
+        try {
+            throw new PatientNotActiveException();
+        } catch (PatientNotActiveException e) {
+            LOGGER.error(e.getMessage());
+>>>>>>> 0932fd5db8f42f9547ece2e7f683f4c4cfa79d1e
         }
         return false;
     }

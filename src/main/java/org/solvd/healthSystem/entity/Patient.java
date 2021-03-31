@@ -10,7 +10,13 @@ public class Patient extends Person {
     private static final Logger LOGGER = Logger.getLogger(Patient.class);
     private boolean isActive;
     private Category healCareCategory;
+<<<<<<< HEAD:src/main/java/org/solvd/healthSystem/entity/Patient.java
     private Faker faker = new Faker();
+=======
+    private int idNumber;
+
+    
+>>>>>>> 0932fd5db8f42f9547ece2e7f683f4c4cfa79d1e:src/main/java/entity/Patient.java
 
     public Patient(Category healCareCategory) {
         super.setLastName(faker.name().lastName());

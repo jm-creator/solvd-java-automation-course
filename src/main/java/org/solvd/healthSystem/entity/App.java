@@ -1,5 +1,8 @@
 package org.solvd.healthSystem.entity;
+<<<<<<< HEAD:src/main/java/org/solvd/healthSystem/entity/App.java
 
+=======
+>>>>>>> 0932fd5db8f42f9547ece2e7f683f4c4cfa79d1e:src/main/java/entity/App.java
 import org.solvd.healthSystem.enums.Categories;
 import org.solvd.healthSystem.enums.CategoryCoverage;
 import org.solvd.healthSystem.interfaces.IActive;
@@ -10,8 +13,13 @@ import org.solvd.healthSystem.services.ActivePatientsService;
 import org.solvd.healthSystem.services.ActiveService;
 import org.solvd.healthSystem.services.CoverageService;
 import org.solvd.healthSystem.services.HealCoverageService;
+<<<<<<< HEAD:src/main/java/org/solvd/healthSystem/entity/App.java
 
 import org.apache.log4j.Logger;
+=======
+import org.apache.log4j.Logger;
+
+>>>>>>> 0932fd5db8f42f9547ece2e7f683f4c4cfa79d1e:src/main/java/entity/App.java
 import java.util.ArrayList;
 import java.util.List;
 

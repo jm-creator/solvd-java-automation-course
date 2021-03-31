@@ -26,6 +26,11 @@ public class HealCoverageService implements IHealCareCoverage {
                 return list;
             }
         }
+        try {
+            throw new PatientNotFoundException();
+        } catch (PatientNotFoundException e) {
+           LOGGER.error(e.getMessage());
+        }
         return null;
     }
 }
