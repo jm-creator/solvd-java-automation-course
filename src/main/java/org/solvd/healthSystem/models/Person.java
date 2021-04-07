@@ -1,14 +1,16 @@
-package org.solvd.healthSystem.entity;
+package org.solvd.healthSystem.models;
 
 public abstract class Person {
     private String firstName;
     private String lastName;
     private int idNumber;
-    
+
+
     public Person(String firstName, String lastName, int idNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.idNumber = idNumber;
+
     }
 
     protected Person() {}
@@ -36,5 +38,8 @@ public abstract class Person {
     public void setIdNumber(int idNumber) {
         this.idNumber = idNumber;
     }
+
+
+
 
 }

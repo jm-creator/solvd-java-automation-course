@@ -1,5 +1,7 @@
 package org.solvd.healthSystem.enums;
 
+import org.solvd.healthSystem.models.HealthCareCategoryCoverage;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -17,7 +19,7 @@ public enum CategoryCoverage {
     //PRO
     DOCTOR_AT_HOME("Doctor at home", "24hs Doctor at Home"),
     INTERNATIONAL_COVERAGE("International coverage", "Full International"),
-    PLASTIC_SURGERY("Plastic surgery", "1");
+    PLASTIC_SURGERY("Plastic surgery", "1 surgery a year");
 
     private String name;
     private String desc;
@@ -27,32 +29,28 @@ public enum CategoryCoverage {
         this.desc = desc;
     }
 
-
-    public static List<CategoryCoverage> getBaseCoverage() {
-        List<CategoryCoverage> coverages = new ArrayList<>();
-        coverages.add(MATERNAL);
-        coverages.add(OPTICAL);
-        coverages.add(ORTHODONTICS);
-        coverages.add(PSYCHOLOGY);
-        coverages.add(KINESIOLOGY);
+    public static List<HealthCareCategoryCoverage> getBaseCoverage() {
+        List<HealthCareCategoryCoverage> coverages = new ArrayList<>();
+        coverages.add(new HealthCareCategoryCoverage(MATERNAL.getName(), MATERNAL.getDesc()));
+        coverages.add(new HealthCareCategoryCoverage(OPTICAL.getName(), OPTICAL.getDesc()));
+        coverages.add(new HealthCareCategoryCoverage(ORTHODONTICS.getName(), ORTHODONTICS.getDesc()));
+        coverages.add(new HealthCareCategoryCoverage(PSYCHOLOGY.getName(), PSYCHOLOGY.getDesc()));
+        coverages.add(new HealthCareCategoryCoverage(KINESIOLOGY.getName(), KINESIOLOGY.getDesc()));
         return coverages;
     }
 
-    public static List<CategoryCoverage> getMediumCoverage() {
-        List<CategoryCoverage> coverages = new ArrayList<>();
-        coverages.addAll(getBaseCoverage());
-        coverages.add(HOSPITAL_THERAPY);
-        coverages.add(EMERGENCIES);
+    public static List<HealthCareCategoryCoverage> getMediumCoverage() {
+        List<HealthCareCategoryCoverage> coverages = new ArrayList<>(getBaseCoverage());
+        coverages.add(new HealthCareCategoryCoverage(HOSPITAL_THERAPY.getName(), HOSPITAL_THERAPY.getDesc()));
+        coverages.add(new HealthCareCategoryCoverage(EMERGENCIES.getName(), EMERGENCIES.getDesc()));
         return coverages;
     }
 
-    public static List<CategoryCoverage> getPremiumCoverage() {
-        List<CategoryCoverage> coverages = new ArrayList<>();
-        coverages.addAll(getBaseCoverage());
-        coverages.addAll(getMediumCoverage());
-        coverages.add(DOCTOR_AT_HOME);
-        coverages.add(INTERNATIONAL_COVERAGE);
-        coverages.add(PLASTIC_SURGERY);
+    public static List<HealthCareCategoryCoverage> getPremiumCoverage() {
+        List<HealthCareCategoryCoverage> coverages = new ArrayList<>(getMediumCoverage());
+        coverages.add(new HealthCareCategoryCoverage(DOCTOR_AT_HOME.getName(), DOCTOR_AT_HOME.getDesc()));
+        coverages.add(new HealthCareCategoryCoverage(INTERNATIONAL_COVERAGE.getName(), INTERNATIONAL_COVERAGE.getDesc()));
+        coverages.add(new HealthCareCategoryCoverage(PLASTIC_SURGERY.getName(), PLASTIC_SURGERY.getDesc()));
         return coverages;
     }
 
@@ -65,8 +63,9 @@ public enum CategoryCoverage {
     }
 
 
-    public static CategoryCoverage getRandomCoverage() {
-        return CategoryCoverage.values()[new Random().nextInt(CategoryCoverage.values().length)];
+    public static HealthCareCategoryCoverage getRandomCoverage() {
+        CategoryCoverage cc = CategoryCoverage.values()[new Random().nextInt(CategoryCoverage.values().length)];
+        return new HealthCareCategoryCoverage(cc.getName(), cc.getDesc());
     }
 
 }

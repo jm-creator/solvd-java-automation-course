@@ -14,7 +14,6 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
@@ -26,7 +25,6 @@
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
-
     </dependencies>
 
 </project>
