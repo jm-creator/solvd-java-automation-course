@@ -20,6 +20,6 @@ public class HumanResourcesEmployee extends BaseEmployee implements IWork {
 
     @Override
     public void work(Partner partner) {
-        LOGGER.info("Working on partner from H.R" +partner);
+        LOGGER.info("Employee from H.R Working on partner " + partner);
     }
 }

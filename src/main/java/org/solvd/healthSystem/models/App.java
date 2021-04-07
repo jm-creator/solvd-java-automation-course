@@ -2,6 +2,7 @@ package org.solvd.healthSystem.models;
 import static org.solvd.healthSystem.enums.Permissions.*;
 
 import org.solvd.healthSystem.exceptions.IncorrectPermissionsException;
+import org.solvd.healthSystem.exceptions.InvalidCoverageException;
 import org.solvd.healthSystem.exceptions.PartnerInsufficientIncomeException;
 import org.solvd.healthSystem.interfaces.BiPredicate;
 import org.apache.log4j.Logger;
@@ -25,7 +26,7 @@ public class App {
        this.healthCarePlans = DataGenerator.loadHealthCarePlans();
    }
 
-    public boolean partnerHasCoverage(BiPredicate<Partner, HealthCareCategoryCoverage> partnerPredicate, Partner partner, HealthCareCategoryCoverage category) {
+    public boolean partnerHasCoverage(BiPredicate<Partner, HealthCareCategoryCoverage> partnerPredicate, Partner partner, HealthCareCategoryCoverage category) throws InvalidCoverageException {
         return partnerPredicate.test(partner, category);
     }
 

@@ -2,6 +2,7 @@ package org.solvd.healthSystem;
 
 
 import org.solvd.healthSystem.exceptions.IncorrectPermissionsException;
+import org.solvd.healthSystem.exceptions.InvalidCoverageException;
 import org.solvd.healthSystem.exceptions.PartnerInsufficientIncomeException;
 import org.solvd.healthSystem.models.*;
 import org.apache.log4j.Logger;
@@ -33,7 +34,7 @@ public class Main {
             }
         );
 
-        // add existentPartner
+        // add nonExistentPartner
         LOGGER.info("Trying to add Partner: " + nonExistentPartner);
         LOGGER.info("Health care plan: " + healthCarePlan.toString());
         try {
@@ -50,17 +51,18 @@ public class Main {
             LOGGER.info(e.getMessage());
         }
 
-      boolean hasCoverage = app.partnerHasCoverage(
-                (p, c) -> p.getHealCareCategory().getCoverages().contains(c),
-                existentPartner,
-                healthCareCategoryCoverage);
-
-        System.out.println("---------------------------");
-      if (hasCoverage == true) {
+        boolean hasCoverage = false;
+        try {
+            hasCoverage = app.partnerHasCoverage(
+                      (p, c) -> p.getHealCareCategory().getCoverages().contains(c),
+                      existentPartner,
+                      healthCareCategoryCoverage);
+        } catch (InvalidCoverageException e) {
+            LOGGER.info(e.getMessage());
+        }
+      if (hasCoverage) {
           LOGGER.info("Partner " + existentPartner + "has coverage for " + healthCareCategoryCoverage);
       } else LOGGER.info("Partner " + existentPartner + "doesn't coverage for " + healthCareCategoryCoverage);
-
-
 
     }
 }

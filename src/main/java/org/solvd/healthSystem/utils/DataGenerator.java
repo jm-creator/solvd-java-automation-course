@@ -52,7 +52,7 @@ public class DataGenerator {
                             isActive,
                             baseCategory,
                             familyGroup,
-                            income = faker.number().randomDouble(2, 15000, 100000)));
+                            faker.number().randomDouble(2, 15000, 100000)));
                 case "MEDIUM":
                     randomPartners.add(new Partner(firstName,
                             lastName,
@@ -60,7 +60,7 @@ public class DataGenerator {
                             isActive,
                             mediumCategory,
                             familyGroup,
-                            income = faker.number().randomDouble(2, 21000, 100000)));
+                            faker.number().randomDouble(2, 21000, 100000)));
                 case "PRO":
                     randomPartners.add(new Partner(firstName,
                             lastName,
@@ -68,7 +68,7 @@ public class DataGenerator {
                             isActive,
                             premiumCategory,
                             familyGroup,
-                            income = faker.number().randomDouble(2, 30000, 100000)));
+                            faker.number().randomDouble(2, 30000, 100000)));
             }
         }
         return randomPartners;
