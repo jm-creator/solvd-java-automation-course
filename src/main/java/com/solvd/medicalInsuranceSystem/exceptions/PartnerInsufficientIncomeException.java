@@ -1,4 +1,4 @@
-package com.solvd.healthsystem.exceptions;
+package com.solvd.medicalInsuranceSystem.exceptions;
 
 public class PartnerInsufficientIncomeException extends Exception {
     public PartnerInsufficientIncomeException() {

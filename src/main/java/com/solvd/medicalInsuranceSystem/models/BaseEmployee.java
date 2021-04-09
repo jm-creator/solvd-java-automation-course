@@ -1,6 +1,6 @@
-package com.solvd.healthsystem.models;
+package com.solvd.medicalInsuranceSystem.models;
 
-import com.solvd.healthsystem.enums.Permissions;
+import com.solvd.medicalInsuranceSystem.enums.Permissions;
 
 import java.util.ArrayList;
 import java.util.List;

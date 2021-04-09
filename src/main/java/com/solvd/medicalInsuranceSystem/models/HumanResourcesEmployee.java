@@ -1,7 +1,7 @@
-package com.solvd.healthsystem.models;
+package com.solvd.medicalInsuranceSystem.models;
 
 import org.apache.log4j.Logger;
-import com.solvd.healthsystem.interfaces.IWork;
+import com.solvd.medicalInsuranceSystem.interfaces.IWork;
 
 public class HumanResourcesEmployee extends BaseEmployee implements IWork {
     private static final Logger LOGGER = Logger.getLogger(HumanResourcesEmployee.class);

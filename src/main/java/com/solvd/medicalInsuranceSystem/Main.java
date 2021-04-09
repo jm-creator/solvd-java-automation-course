@@ -1,12 +1,12 @@
-package com.solvd.healthsystem;
+package com.solvd.medicalInsuranceSystem;
 
 
-import com.solvd.healthsystem.enums.Permissions;
-import com.solvd.healthsystem.exceptions.InvalidCoverageException;
-import com.solvd.healthsystem.exceptions.PartnerInsufficientIncomeException;
-import com.solvd.healthsystem.models.*;
-import com.solvd.healthsystem.utils.DataGenerator;
-import com.solvd.healthsystem.exceptions.IncorrectPermissionsException;
+import com.solvd.medicalInsuranceSystem.enums.Permissions;
+import com.solvd.medicalInsuranceSystem.exceptions.InvalidCoverageException;
+import com.solvd.medicalInsuranceSystem.exceptions.PartnerInsufficientIncomeException;
+import com.solvd.medicalInsuranceSystem.models.*;
+import com.solvd.medicalInsuranceSystem.utils.DataGenerator;
+import com.solvd.medicalInsuranceSystem.exceptions.IncorrectPermissionsException;
 import org.apache.log4j.Logger;
 
 public class Main {

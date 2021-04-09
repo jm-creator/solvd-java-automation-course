@@ -1,9 +1,9 @@
-package com.solvd.healthsystem.enums;
+package com.solvd.medicalInsuranceSystem.enums;
 
-import com.solvd.healthsystem.models.AbstractHealthCarePlan;
-import com.solvd.healthsystem.models.BaseHealCarePlan;
-import com.solvd.healthsystem.models.MediumHealCarePlan;
-import com.solvd.healthsystem.models.PremiumHealCarePlan;
+import com.solvd.medicalInsuranceSystem.models.AbstractHealthCarePlan;
+import com.solvd.medicalInsuranceSystem.models.BaseHealCarePlan;
+import com.solvd.medicalInsuranceSystem.models.MediumHealCarePlan;
+import com.solvd.medicalInsuranceSystem.models.PremiumHealCarePlan;
 
 import java.util.ArrayList;
 import java.util.List;

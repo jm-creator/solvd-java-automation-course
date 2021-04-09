@@ -1,16 +1,16 @@
-package com.solvd.healthsystem.utils;
+package com.solvd.medicalInsuranceSystem.utils;
 
 import com.github.javafaker.Faker;
-import com.solvd.healthsystem.models.*;
+import com.solvd.medicalInsuranceSystem.models.*;
 import org.apache.log4j.Logger;
-import com.solvd.healthsystem.enums.HealthCarePlans;
-import com.solvd.healthsystem.enums.CategoryCoverage;
+import com.solvd.medicalInsuranceSystem.enums.HealthCarePlans;
+import com.solvd.medicalInsuranceSystem.enums.CategoryCoverage;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static com.solvd.healthsystem.enums.HealthCarePlans.*;
+import static com.solvd.medicalInsuranceSystem.enums.HealthCarePlans.*;
 
 public class DataGenerator {
     private static final Logger LOGGER = Logger.getLogger(DataGenerator.class);

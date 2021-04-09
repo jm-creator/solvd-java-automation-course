@@ -1,4 +1,4 @@
-package com.solvd.healthsystem.exceptions;
+package com.solvd.medicalInsuranceSystem.exceptions;
 
 public class PatientNotActiveException extends  Exception {
     public PatientNotActiveException() {

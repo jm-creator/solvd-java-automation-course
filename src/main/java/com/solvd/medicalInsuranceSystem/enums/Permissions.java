@@ -1,4 +1,4 @@
-package com.solvd.healthsystem.enums;
+package com.solvd.medicalInsuranceSystem.enums;
 
 public enum Permissions {
     CREATE_PARTNER("permission for create partner", true),

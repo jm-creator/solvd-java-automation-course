@@ -1,7 +1,7 @@
-package com.solvd.healthsystem.models;
+package com.solvd.medicalInsuranceSystem.models;
 
 import org.apache.log4j.Logger;
-import com.solvd.healthsystem.interfaces.IWork;
+import com.solvd.medicalInsuranceSystem.interfaces.IWork;
 
 import java.util.ArrayList;
 import java.util.List;

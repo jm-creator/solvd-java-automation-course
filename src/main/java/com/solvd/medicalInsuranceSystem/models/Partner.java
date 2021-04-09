@@ -1,4 +1,4 @@
-package com.solvd.healthsystem.models;
+package com.solvd.medicalInsuranceSystem.models;
 
 import org.apache.log4j.Logger;
 

@@ -1,4 +1,4 @@
-package com.solvd.healthsystem.exceptions;
+package com.solvd.medicalInsuranceSystem.exceptions;
 
 public class InvalidCoverageException extends Exception {
     public InvalidCoverageException() {

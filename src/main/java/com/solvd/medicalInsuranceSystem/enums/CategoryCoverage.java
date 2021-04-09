@@ -1,6 +1,6 @@
-package com.solvd.healthsystem.enums;
+package com.solvd.medicalInsuranceSystem.enums;
 
-import com.solvd.healthsystem.models.HealthCareCategoryCoverage;
+import com.solvd.medicalInsuranceSystem.models.HealthCareCategoryCoverage;
 
 import java.util.ArrayList;
 import java.util.List;

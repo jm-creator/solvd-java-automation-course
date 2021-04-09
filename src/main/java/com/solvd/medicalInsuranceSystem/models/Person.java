@@ -1,4 +1,4 @@
-package com.solvd.healthsystem.models;
+package com.solvd.medicalInsuranceSystem.models;
 
 public abstract class Person {
     private String firstName;

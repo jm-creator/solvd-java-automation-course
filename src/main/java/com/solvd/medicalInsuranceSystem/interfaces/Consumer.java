@@ -1,4 +1,4 @@
-package com.solvd.healthsystem.interfaces;
+package com.solvd.medicalInsuranceSystem.interfaces;
 
 @FunctionalInterface
 public interface Consumer<T> {
