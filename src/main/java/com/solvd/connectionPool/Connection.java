@@ -1,16 +1,16 @@
 package com.solvd.connectionPool;
 
+import org.apache.log4j.Logger;
+
 import java.sql.SQLException;
 
-public class Connection {
+public class Connection implements AutoCloseable{
+
     private int idConnection;
+    private static final Logger LOGGER = Logger.getLogger(Connection.class);
 
     public Connection(int id) {
         this.idConnection = id;
-    }
-
-    public boolean closeConnection() throws SQLException {
-        return true;
     }
 
     public int getIdConnection() {
@@ -19,5 +19,11 @@ public class Connection {
 
     public void setIdConnection(int idConnection) {
         this.idConnection = idConnection;
+    }
+
+    @Override
+    public void close() throws Exception {
+        LOGGER.info("releasing connection");
+        ConnectionPool.getInstance().releaseConnection(this);
     }
 }

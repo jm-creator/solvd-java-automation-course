@@ -9,7 +9,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ConnectionPool {
+
     private static final Logger LOGGER = Logger.getLogger(ConnectionPool.class);
+
     private static final ConnectionPool CONNECTION_POOL = new ConnectionPool();
     private static final int POOL_SIZE = 10;
     private static AtomicInteger activeConnections = new AtomicInteger(1);
@@ -34,7 +36,7 @@ public class ConnectionPool {
             activeConnections.incrementAndGet();
         }
         return connectionPool.take();
-    } catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             LOGGER.error(e.getMessage());
         } finally {
             lock.unlock();
@@ -42,17 +44,7 @@ public class ConnectionPool {
         return null;
     }
 
-    public void closeAllConnections() {
-        connectionPool.forEach(connection -> {
-            try {
-                connection.closeConnection();
-            } catch (SQLException e) {
-                LOGGER.error(e.getMessage());
-            }
-            connectionPool = new LinkedBlockingQueue<Connection>(POOL_SIZE);
-            activeConnections.getAndSet(1);
-        });
-    }
+    public void closeAllConnections() {}
 
 
     public static int getPoolSize() {

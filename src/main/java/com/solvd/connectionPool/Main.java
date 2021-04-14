@@ -9,8 +9,8 @@ import java.util.concurrent.Executors;
 
 public class Main {
     private static final Logger LOGGER = Logger.getLogger(Main.class);
-    private static final int THREAD_POOL_SIZE = 20;
-    private static final int AMOUNT_OF_THREADS = 50;
+    private static final int THREAD_POOL_SIZE = 5;
+    private static final int AMOUNT_OF_THREADS = 10;
 
     public static void main(String[] args) {
         ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
@@ -18,14 +18,14 @@ public class Main {
             executor.execute(new App());
         executor.shutdown();
 
-        List<Thread> threads = new ArrayList<>();
-        App app = new App();
-
-        for (int i = 0; i < 20; i++) {
-            threads.add(new Thread(app));
-        }
-
-        threads.forEach(Thread::start);
+//        List<Thread> threads = new ArrayList<>();
+//        App app = new App();
+//
+//        for (int i = 0; i < AMOUNT_OF_THREADS; i++) {
+//            threads.add(new Thread(app));
+//        }
+//
+//        threads.forEach(Thread::start);
     }
 
 }
