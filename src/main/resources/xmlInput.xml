@@ -4,7 +4,7 @@
         <name>Juan Manuel Rovira</name>
         <email>jm@gmail.com</email>
         <password>p4s$w0rd</password>
-        <addres_id>1</addres_id>
+        <address_id>1</address_id>
     </Customer>
     <Customer id = "2">
         <name>Pedro Sanchez</name>

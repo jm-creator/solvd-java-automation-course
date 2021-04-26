@@ -1,5 +1,8 @@
 package com.solvd.connectionPool.utils;
 
+import com.solvd.connectionPool.pool.App;
+import org.apache.log4j.Logger;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Iterator;
@@ -15,7 +18,7 @@ import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
 public class StAXParser {
-
+    private static final Logger LOGGER = Logger.getLogger(StAXParser.class);
     boolean bName = false;
     boolean bEmail = false;
     boolean bPassword = false;
@@ -38,17 +41,17 @@ public class StAXParser {
                         String qName = startElement.getName().getLocalPart();
 
                         if (qName.equalsIgnoreCase("Customer")) {
-                            System.out.println("Start Element : Customer");
+                            LOGGER.info("Start Element : Customer");
                             Iterator<Attribute> attributes = startElement.getAttributes();
                             String id = attributes.next().getValue();
-                            System.out.println("id : " + id);
+                            LOGGER.info("id : " + id);
                         } else if (qName.equalsIgnoreCase("name")) {
                             bName = true;
                         } else if (qName.equalsIgnoreCase("email")) {
                             bEmail = true;
                         } else if (qName.equalsIgnoreCase("password")) {
                             bPassword = true;
-                        } else if (qName.equalsIgnoreCase("addres_id")) {
+                        } else if (qName.equalsIgnoreCase("address_id")) {
                             bAddress_id = true;
                         }
                         break;
@@ -56,19 +59,19 @@ public class StAXParser {
                     case XMLStreamConstants.CHARACTERS:
                         Characters characters = event.asCharacters();
                         if (bName) {
-                            System.out.println("Name: " + characters.getData());
+                            LOGGER.info("Name: " + characters.getData());
                             bName = false;
                         }
                         if (bEmail) {
-                            System.out.println("email: " + characters.getData());
+                            LOGGER.info("email: " + characters.getData());
                             bEmail = false;
                         }
                         if (bPassword) {
-                            System.out.println("password: " + characters.getData());
+                            LOGGER.info("password: " + characters.getData());
                             bPassword = false;
                         }
                         if (bAddress_id) {
-                            System.out.println("Address id: " + characters.getData());
+                            LOGGER.info("Address id: " + characters.getData());
                             bAddress_id = false;
                         }
                         break;
@@ -77,8 +80,7 @@ public class StAXParser {
                         EndElement endElement = event.asEndElement();
 
                         if (endElement.getName().getLocalPart().equalsIgnoreCase("Customer")) {
-                            System.out.println("End Element : Customer");
-                            System.out.println();
+                            LOGGER.info("End Element : Customer");
                         }
                         break;
                 }
