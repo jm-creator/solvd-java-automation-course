@@ -1,13 +1,12 @@
-package com.solvd.connectionPool;
-
-import com.solvd.connectionPool.dbpool.App;
+package com.solvd.connectionPool.pool;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+    // //////first pool implementation ///////
+    private static final int AMOUNT_OF_THREADS = 15;
 
-    private static final int AMOUNT_OF_THREADS = 1;
     public static void main(String[] args) {
         List<Thread> threads = new ArrayList<>();
         App app = new App();
@@ -16,4 +15,5 @@ public class Main {
         }
         threads.forEach(Thread::start);
     }
+
 }

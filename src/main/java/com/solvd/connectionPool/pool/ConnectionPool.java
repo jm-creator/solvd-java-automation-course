@@ -1,9 +1,7 @@
-package com.solvd.connectionPool;
+package com.solvd.connectionPool.pool;
 
 import org.apache.log4j.Logger;
-import com.solvd.connectionPool.Connection;
 
-import java.sql.SQLException;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;

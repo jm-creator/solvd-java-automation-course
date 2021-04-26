@@ -1,8 +1,6 @@
-package com.solvd.connectionPool;
+package com.solvd.connectionPool.pool;
 
 import org.apache.log4j.Logger;
-
-import java.sql.SQLException;
 
 public class Connection implements AutoCloseable{
 
@@ -24,6 +22,6 @@ public class Connection implements AutoCloseable{
     @Override
     public void close() throws Exception {
         LOGGER.info("releasing connection");
-        ConnectionPool.getInstance().releaseConnection(this);
+       ConnectionPool.getInstance().releaseConnection(this);
     }
 }

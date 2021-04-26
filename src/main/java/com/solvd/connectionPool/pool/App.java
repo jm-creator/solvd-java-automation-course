@@ -1,4 +1,4 @@
-package com.solvd.connectionPool;
+package com.solvd.connectionPool.pool;
 
 import org.apache.log4j.Logger;
 
@@ -10,7 +10,6 @@ public class App implements Runnable{
 
     @Override
     public void run() {
-
 
         try (Connection connection = ConnectionPool.getInstance().getConnection()) {
             // simulate working thread
