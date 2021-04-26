@@ -17,6 +17,8 @@ public class OrderDao extends AbstractDao implements OrderMapper {
     private static final String GET_BY_ID = "SELECT * FROM Orders WHERE id = ?";
     private static final String DELETE_BY_ID = "DELETE FROM Orders WHERE id = ?";
     private static final String UPDATE_BY_ID  = "UPDATE Orders SET ? = ? WHERE id = ?";
+    private static final String GET_ALL_BY_RESTAURANT_ID = "SELECT * FROM Orders WHERE restaurant_id = ?";
+    private static final String GET_ALL_BY_MENU_ID = "SELECT * FROM Orders WHERE Menu_id = ?";
 
     @Override
     public Order getById(long id) {
@@ -67,5 +69,35 @@ public class OrderDao extends AbstractDao implements OrderMapper {
 
     public Order initializeOrders(ResultSet rs) throws SQLException {
         return new Order(rs.getLong("id"), rs.getDouble("amount"));
+    }
+
+    @Override
+    public List<Order> getAllByRestaurantId(long id) {
+        try (ClosableEntity ce = new ClosableEntity(getConnectionPool().getConnection())) {
+            ResultSet rs = ce.executeQuery(GET_ALL_BY_RESTAURANT_ID, id);
+            List<Order> orders = new ArrayList<>();
+            if (rs.next()) {
+                while (rs.next()) orders.add(initializeOrders(rs));
+                return orders;
+            } else throw new SQLException("Not found");
+        } catch (SQLException e) {
+            LOGGER.error(e);
+        }
+        return null;
+    }
+
+    @Override
+    public List<Order> getAllByMenuId(long id) {
+        try (ClosableEntity ce = new ClosableEntity(getConnectionPool().getConnection())) {
+            ResultSet rs = ce.executeQuery(GET_ALL_BY_MENU_ID, id);
+            List<Order> orders = new ArrayList<>();
+            if (rs.next()) {
+                while (rs.next()) orders.add(initializeOrders(rs));
+                return orders;
+            } else throw new SQLException("Not found");
+        } catch (SQLException e) {
+            LOGGER.error(e);
+        }
+        return null;
     }
 }

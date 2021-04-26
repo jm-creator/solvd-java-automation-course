@@ -45,6 +45,30 @@ public class Menu extends BaseModel{
         this.restaurant = restaurant;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
+    }
+
+    public List<MenuHasIngredients> getMenuHasIngredients() {
+        return menuHasIngredients;
+    }
+
+    public void setMenuHasIngredients(List<MenuHasIngredients> menuHasIngredients) {
+        this.menuHasIngredients = menuHasIngredients;
+    }
+
     @Override
     public String toString() {
         return "Menu{" +

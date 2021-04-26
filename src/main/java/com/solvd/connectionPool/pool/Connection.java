@@ -3,7 +3,7 @@ package com.solvd.connectionPool.pool;
 import org.apache.log4j.Logger;
 
 public class Connection implements AutoCloseable{
-
+    //////first pool implementation ///////
     private int idConnection;
     private static final Logger LOGGER = Logger.getLogger(Connection.class);
 

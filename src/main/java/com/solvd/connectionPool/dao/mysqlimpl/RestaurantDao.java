@@ -70,4 +70,5 @@ public class RestaurantDao extends AbstractDao implements RestaurantMapper {
     public Restaurant initializeRestaurants(ResultSet rs) throws SQLException {
         return new Restaurant(rs.getLong("id"), rs.getString("name"), rs.getString("description"));
     }
+
 }

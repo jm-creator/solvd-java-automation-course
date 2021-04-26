@@ -22,6 +22,7 @@ public class MenuDao extends AbstractDao implements MenuMapper {
     private static final String GET_BY_ID = "SELECT * FROM Menu WHERE id = ?";
     private static final String DELETE_BY_ID = "DELETE FROM Menu WHERE id = ?";
     private static final String UPDATE_BY_ID  = "UPDATE Menu SET ? = ? WHERE id = ?";
+    private static final String GET_ALL_MENU_BY_RESTAURANT_ID = "SELECT * FROM Menu WHERE restaurant_id = ?";
 
 
     @Override
@@ -73,5 +74,16 @@ public class MenuDao extends AbstractDao implements MenuMapper {
 
     public Menu initializeMenus(ResultSet rs) throws SQLException {
         return new Menu(rs.getLong("id"), rs.getString("name"));
+    }
+
+    @Override
+    public Menu getByRestaurantId(long id) {
+        try (ClosableEntity ce = new ClosableEntity(getConnectionPool().getConnection())) {
+            ResultSet rs = ce.executeQuery(GET_ALL_MENU_BY_RESTAURANT_ID, id);
+            if (rs.next()) return initializeMenus(rs);
+        } catch (SQLException e) {
+            LOGGER.error(e.getMessage());
+        }
+        return null;
     }
 }

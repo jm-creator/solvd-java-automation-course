@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Customers>
+    <Customer id = "1">
+        <name>Juan Manuel Rovira</name>
+        <email>jm@gmail.com</email>
+        <password>p4s$w0rd</password>
+        <addres_id>1</addres_id>
+    </Customer>
+    <Customer id = "2">
+        <name>Pedro Sanchez</name>
+        <email>psancez@gmail.com</email>
+        <password>p4s$w0rd</password>
+        <address_id>2</address_id>
+    </Customer>
+</Customers>

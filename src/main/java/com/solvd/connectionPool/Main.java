@@ -1,6 +1,7 @@
 package com.solvd.connectionPool;
 
 import com.solvd.connectionPool.dbpool.App;
+import com.solvd.connectionPool.utils.StAXParser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,5 +16,9 @@ public class Main {
             threads.add(new Thread(app));
         }
         threads.forEach(Thread::start);
+
+
+        StAXParser stAXParser = new StAXParser();
+        stAXParser.parser();
     }
 }

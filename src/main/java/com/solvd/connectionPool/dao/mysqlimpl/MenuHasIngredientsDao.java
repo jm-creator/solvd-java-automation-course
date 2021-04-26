@@ -4,6 +4,7 @@ import com.solvd.connectionPool.dao.AbstractDao;
 import com.solvd.connectionPool.dao.MenuHasIngredientsMapper;
 import com.solvd.connectionPool.dbpool.ClosableEntity;
 import com.solvd.connectionPool.models.MenuHasIngredients;
+import com.solvd.connectionPool.models.Order;
 import org.apache.log4j.Logger;
 
 import java.sql.ResultSet;
@@ -18,7 +19,7 @@ public class MenuHasIngredientsDao extends AbstractDao implements MenuHasIngredi
     private static final String GET_BY_ID = "SELECT * FROM Menu_has_Ingredients WHERE id = ?";
     private static final String DELETE_BY_ID = "DELETE FROM Menu_has_Ingredients WHERE id = ?";
     private static final String UPDATE_BY_ID = "UPDATE Menu_has_Ingredients SET ? = ? WHERE id = ?";
-
+    private static final String GET_ALL_MENU_HAS_INGREDIENTS_ID = "SELECT * FROM Menu_has_Ingredients WHERE restaurant_id = ?";
     @Override
     public MenuHasIngredients getById(long id) {
         try (ClosableEntity ce = new ClosableEntity(getConnectionPool().getConnection())) {
@@ -68,5 +69,21 @@ public class MenuHasIngredientsDao extends AbstractDao implements MenuHasIngredi
 
     public MenuHasIngredients initializeMenuHasIngredients(ResultSet rs) throws SQLException {
         return new MenuHasIngredients(rs.getLong("id"), rs.getInt("quantity"));
+    }
+
+
+    @Override
+    public List<MenuHasIngredients> getAllByMenuId(Long id) {
+        try (ClosableEntity ce = new ClosableEntity(getConnectionPool().getConnection())) {
+            ResultSet rs = ce.executeQuery(GET_ALL_MENU_HAS_INGREDIENTS_ID, id);
+            List<MenuHasIngredients> menuHasIngredients = new ArrayList<>();
+            if (rs.next()) {
+                while (rs.next()) menuHasIngredients.add(initializeMenuHasIngredients(rs));
+                return menuHasIngredients;
+            } else throw new SQLException("Not found");
+        } catch (SQLException e) {
+            LOGGER.error(e);
+        }
+        return null;
     }
 }

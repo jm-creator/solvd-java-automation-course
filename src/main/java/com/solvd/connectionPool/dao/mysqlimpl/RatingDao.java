@@ -3,6 +3,7 @@ package com.solvd.connectionPool.dao.mysqlimpl;
 import com.solvd.connectionPool.dao.AbstractDao;
 import com.solvd.connectionPool.dao.RatingMapper;
 import com.solvd.connectionPool.dbpool.ClosableEntity;
+import com.solvd.connectionPool.models.Order;
 import com.solvd.connectionPool.models.Rating;
 import org.apache.log4j.Logger;
 
@@ -18,6 +19,8 @@ public class RatingDao extends AbstractDao implements RatingMapper {
     private static final String GET_BY_ID = "SELECT * FROM Ratings WHERE id = ?";
     private static final String DELETE_BY_ID = "DELETE FROM Ratings WHERE id = ?";
     private static final String UPDATE_BY_ID  = "UPDATE Ratings SET ? = ? WHERE id = ?";
+    private static final String GET_ALL_BY_RESTAURANT_ID = "SELECT * FROM Ratings WHERE Restaurants_id = ?";
+    private static final String GET_ALL_BY_MENU_ID = "SELECT * FROM Ratings WHERE Menu_id = ?";
 
     @Override
     public Rating getById(long id) {
@@ -68,5 +71,35 @@ public class RatingDao extends AbstractDao implements RatingMapper {
 
     public Rating initializeRatings(ResultSet rs) throws SQLException {
         return new Rating(rs.getLong("id"), rs.getDate("date_recorder"), rs.getInt("score"), rs.getString("score"));
+    }
+
+    @Override
+    public List<Rating> getAllByRestaurantId(long id) {
+        try (ClosableEntity ce = new ClosableEntity(getConnectionPool().getConnection())) {
+            ResultSet rs = ce.executeQuery(GET_ALL_BY_RESTAURANT_ID, id);
+            List<Rating> ratings = new ArrayList<>();
+            if (rs.next()) {
+                while (rs.next()) ratings.add(initializeRatings(rs));
+                return ratings;
+            } else throw new SQLException("Not found");
+        } catch (SQLException e) {
+            LOGGER.error(e);
+        }
+        return null;
+    }
+
+    @Override
+    public List<Rating> getAllByMenuId(long id) {
+        try (ClosableEntity ce = new ClosableEntity(getConnectionPool().getConnection())) {
+            ResultSet rs = ce.executeQuery(GET_ALL_BY_MENU_ID, id);
+            List<Rating> ratings = new ArrayList<>();
+            if (rs.next()) {
+                while (rs.next()) ratings.add(initializeRatings(rs));
+                return ratings;
+            } else throw new SQLException("Not found");
+        } catch (SQLException e) {
+            LOGGER.error(e);
+        }
+        return null;
     }
 }
