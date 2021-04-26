@@ -50,4 +50,12 @@ public class OrderService {
     public void setTransactionStatusDao(TransactionStatusMapper transactionStatusDao) {
         this.transactionStatusDao = transactionStatusDao;
     }
+
+    public PaymentMapper getPaymentDao() {
+        return paymentDao;
+    }
+
+    public void setPaymentDao(PaymentMapper paymentDao) {
+        this.paymentDao = paymentDao;
+    }
 }

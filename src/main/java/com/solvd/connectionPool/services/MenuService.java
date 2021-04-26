@@ -45,4 +45,43 @@ public class MenuService {
         menu.setRestaurant(restaurantDao.getById(menu.getId()));
     }
 
+    public MenuMapper getMenuDao() {
+        return menuDao;
+    }
+
+    public void setMenuDao(MenuMapper menuDao) {
+        this.menuDao = menuDao;
+    }
+
+    public RatingMapper getRatingDao() {
+        return ratingDao;
+    }
+
+    public void setRatingDao(RatingMapper ratingDao) {
+        this.ratingDao = ratingDao;
+    }
+
+    public OrderMapper getOrderDao() {
+        return orderDao;
+    }
+
+    public void setOrderDao(OrderMapper orderDao) {
+        this.orderDao = orderDao;
+    }
+
+    public MenuHasIngredientsMapper getMenuHasIngredientsDao() {
+        return menuHasIngredientsDao;
+    }
+
+    public void setMenuHasIngredientsDao(MenuHasIngredientsMapper menuHasIngredientsDao) {
+        this.menuHasIngredientsDao = menuHasIngredientsDao;
+    }
+
+    public RestaurantMapper getRestaurantDao() {
+        return restaurantDao;
+    }
+
+    public void setRestaurantDao(RestaurantMapper restaurantDao) {
+        this.restaurantDao = restaurantDao;
+    }
 }
