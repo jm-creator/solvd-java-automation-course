@@ -1,6 +1,9 @@
 package com.solvd.connectionPool.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public abstract class BaseModel {
+    @JsonProperty("Id")
     private Long id;
 
     public BaseModel() {}

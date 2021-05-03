@@ -1,22 +1,23 @@
 package com.solvd.connectionPool.models;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Restaurant extends BaseModel {
     private String name;
     private String description;
     private Address address;
-    private List<Order> orders;
     private List<Rating> ratings;
+    private List<Menu> menus;
 
     public Restaurant() {}
 
-    public Restaurant(String name, String description, Address address, List<Order> orders, List<Rating> ratings) {
+    public Restaurant(String name, String description, Address address, List<Rating> ratings) {
         this.name = name;
         this.description = description;
         this.address = address;
-        this.orders = orders;
         this.ratings = ratings;
     }
 
@@ -25,7 +26,6 @@ public class Restaurant extends BaseModel {
         this.name = name;
         this.description = description;
         this.address = new Address();
-        this.orders = new ArrayList<>();
         this.ratings = new ArrayList<>();
     }
 
@@ -53,14 +53,6 @@ public class Restaurant extends BaseModel {
         this.address = address;
     }
 
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
-
     public List<Rating> getRatings() {
         return ratings;
     }
@@ -75,7 +67,6 @@ public class Restaurant extends BaseModel {
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", address=" + address +
-                ", orders=" + orders +
                 ", ratings=" + ratings +
                 '}';
     }

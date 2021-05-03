@@ -1,8 +1,9 @@
 package com.solvd.connectionPool.models;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
-
+@XmlRootElement(name = "Ingredients")
 public class Ingredient extends BaseModel {
     private String name;
     private String description;

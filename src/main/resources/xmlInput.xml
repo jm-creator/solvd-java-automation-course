@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <Customers>
-    <Customer id = "1">
+    <Customer>
+        <id>1</id>
         <name>Juan Manuel Rovira</name>
         <email>jm@gmail.com</email>
         <password>p4s$w0rd</password>
-        <address_id>1</address_id>
+        <Address> Brasil 233</Address>
     </Customer>
-    <Customer id = "2">
+    <Customer>
+        <id>2</id>
+        <name>Eduard Martinez</name>
+        <email>edumart@hotmail.com</email>
+        <password>p13213</password>
+        <Address>San Lorenzo 6223</Address>
+    </Customer>
+    <Customer>
+        <id>3</id>
         <name>Pedro Sanchez</name>
         <email>psancez@gmail.com</email>
-        <password>p4s$w0rd</password>
-        <address_id>2</address_id>
+        <password>p42223</password>
+        <Address>Paraguay 333</Address>
     </Customer>
 </Customers>
+
+

@@ -8,8 +8,7 @@ public class Address extends BaseModel{
     private String address;
     private int zipCode;
     private City city;
-    private List<Restaurant> restaurants;
-    private List<Customer> customers;
+
 
     public Address() {}
 
@@ -17,8 +16,6 @@ public class Address extends BaseModel{
         this.address = address;
         this.zipCode = zipCode;
         this.city = city;
-        this.restaurants = new ArrayList<>();
-        this.customers = new ArrayList<>();
     }
 
     public Address(Long id, String address, int zipCode) {
@@ -26,8 +23,6 @@ public class Address extends BaseModel{
         this.address = address;
         this.zipCode = zipCode;
         this.city = new City();
-        this.restaurants = new ArrayList<>();
-        this.customers = new ArrayList<>();
     }
 
     public String getAddress() {

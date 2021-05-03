@@ -28,7 +28,6 @@ public class RestaurantService {
 
     public Restaurant getById(long id) {
         Restaurant restaurant = restaurantDao.getById(id);
-        restaurant.setOrders(orderDao.getAllByRestaurantId(restaurant.getId()));
         restaurant.setRatings(ratingDao.getAllByRestaurantId(restaurant.getId()));
         return restaurant;
     }
@@ -40,7 +39,6 @@ public class RestaurantService {
     }
 
     public void initializeRestaurant(Restaurant restaurant) {
-        restaurant.setOrders(orderDao.getAllByRestaurantId(restaurant.getId()));
         restaurant.setRatings(ratingDao.getAllByRestaurantId(restaurant.getId()));
     }
 

@@ -14,11 +14,11 @@ VALUES (4, "Argentina 2131", 1500, 2);
 INSERT INTO Addresses (id, address, zip_code, Cities_id) 
 VALUES (5, "Av. Alberdi 23", 1500, 2);
 INSERT INTO Addresses (id, address, zip_code,Cities_id) 
-VALUES (6, "25 may", 1500, 2);
+VALUES (6, "25 may 112", 1500, 2);
 INSERT INTO Addresses (id, address, zip_code, Cities_id) 
-VALUES (7, "av.America", 3500, 3);
+VALUES (7, "av.America 1231", 3500, 3);
 INSERT INTO Addresses (id, address, zip_code, Cities_id) 
-VALUES (8, "Paraguay", 3500, 3);
+VALUES (8, "Paraguay 333", 3500, 3);
 INSERT INTO Addresses (id, address, zip_code, Cities_id) 
 VALUES (11, "Paraguay 123", 3500, 2);
 INSERT INTO Addresses (id, address, zip_code, Cities_id) 
@@ -56,7 +56,7 @@ VALUES (7, "Carl Paez", "cpaez@gmail.com", "p1234", "7");
 INSERT Customers (id, `name`, email, `password`, Addresses_id)
 VALUES (8, "Maria Martins", "mm@sandmail.com", "p42223", "8");
 INSERT Customers (id, `name`, email, `password`, Addresses_id)
-VALUES (9, "Apolo Mc Mortins", "apsood@gmail.com", "pk12n39", "9");
+VALUES (9, "Apolo Mortins", "apsood@gmail.com", "pk12n39", "9");
 INSERT Customers (id, `name`, email, `password`, Addresses_id)
 VALUES (10, "lian young", "lianyong12@gmail.com", "p4fw0rd", "1");
 

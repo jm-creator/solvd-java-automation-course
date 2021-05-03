@@ -19,11 +19,18 @@ import javax.xml.stream.events.XMLEvent;
 
 public class StAXParser {
     private static final Logger LOGGER = Logger.getLogger(StAXParser.class);
-    boolean bName = false;
-    boolean bEmail = false;
-    boolean bPassword = false;
-    boolean bAddress_id = false;
+    private boolean bId;
+    private boolean bName;
+    private boolean bEmail;
+    private boolean bPassword ;
+    private boolean bAddress_id;
     private static final String PATH_TO_XML_INPUT = "src/main/resources/xmlInput.xml";
+    private static final String CUSTOMER = "Customer";
+    private static final String ID = "id";
+    private static final String NAME = "name";
+    private static final String EMAIL = "email";
+    private static final String PASSWORD = "password";
+    private static final String ADDRESS = "Address";
 
     public void parser() {
         try {
@@ -35,29 +42,34 @@ public class StAXParser {
                 XMLEvent event = eventReader.nextEvent();
 
                 switch (event.getEventType()) {
-
                     case XMLStreamConstants.START_ELEMENT:
                         StartElement startElement = event.asStartElement();
                         String qName = startElement.getName().getLocalPart();
-
-                        if (qName.equalsIgnoreCase("Customer")) {
-                            LOGGER.info("Start Element : Customer");
-                            Iterator<Attribute> attributes = startElement.getAttributes();
-                            String id = attributes.next().getValue();
-                            LOGGER.info("id : " + id);
-                        } else if (qName.equalsIgnoreCase("name")) {
-                            bName = true;
-                        } else if (qName.equalsIgnoreCase("email")) {
-                            bEmail = true;
-                        } else if (qName.equalsIgnoreCase("password")) {
-                            bPassword = true;
-                        } else if (qName.equalsIgnoreCase("address_id")) {
-                            bAddress_id = true;
+                        switch (qName) {
+                            case ID:
+                                bId = true;
+                                break;
+                            case NAME:
+                                bName = true;
+                                break;
+                            case EMAIL:
+                                bEmail = true;
+                                break;
+                            case PASSWORD:
+                                bPassword = true;
+                                break;
+                            case ADDRESS:
+                                bAddress_id = true;
+                                break;
                         }
                         break;
-
                     case XMLStreamConstants.CHARACTERS:
+
                         Characters characters = event.asCharacters();
+                        if(bId) {
+                            LOGGER.info("Id: " + characters.getData());
+                            bId = false;
+                        }
                         if (bName) {
                             LOGGER.info("Name: " + characters.getData());
                             bName = false;
@@ -79,7 +91,7 @@ public class StAXParser {
                     case XMLStreamConstants.END_ELEMENT:
                         EndElement endElement = event.asEndElement();
 
-                        if (endElement.getName().getLocalPart().equalsIgnoreCase("Customer")) {
+                        if (endElement.getName().getLocalPart().equalsIgnoreCase("Customers")) {
                             LOGGER.info("End Element : Customer");
                         }
                         break;

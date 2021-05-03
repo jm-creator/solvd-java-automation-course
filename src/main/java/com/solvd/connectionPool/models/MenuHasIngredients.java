@@ -1,5 +1,8 @@
 package com.solvd.connectionPool.models;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+
 public class MenuHasIngredients extends BaseModel{
     private int quantity;
     private Menu menu;

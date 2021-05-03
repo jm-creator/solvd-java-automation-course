@@ -1,8 +1,10 @@
 package com.solvd.connectionPool.models;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
+@XmlRootElement(name = "menu")
 public class Menu extends BaseModel{
     private String name;
     private Restaurant restaurant;

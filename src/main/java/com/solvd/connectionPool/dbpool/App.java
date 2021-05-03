@@ -3,6 +3,7 @@ package com.solvd.connectionPool.dbpool;
 import com.solvd.connectionPool.dao.mysqlimpl.CustomerDao;
 import com.solvd.connectionPool.models.BaseModel;
 import com.solvd.connectionPool.models.Customer;
+import com.solvd.connectionPool.utils.JaxBParser;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;

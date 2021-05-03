@@ -1,6 +1,9 @@
 package com.solvd.connectionPool.models;
 
+
 import java.util.Date;
+
+
 
 public class Payment extends BaseModel{
 

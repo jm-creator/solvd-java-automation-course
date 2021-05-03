@@ -1,24 +1,25 @@
 package com.solvd.connectionPool.models;
 
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@XmlRootElement(name = "Customer")
+@XmlAccessorType(XmlAccessType.PROPERTY)
 public class Customer extends BaseModel {
     private String name;
     private String email;
     private String password;
     private Address address;
-    private List<Rating> ratings;
+    @XmlTransient
     private List<Order> orders;
 
     public Customer() {}
 
-    public Customer(String name, String email, String password, Address address) {
+    public Customer(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.address = address;
-        this.ratings = new ArrayList<>();
         this.orders = new ArrayList<>();
     }
 
@@ -28,7 +29,6 @@ public class Customer extends BaseModel {
         this.email = email;
         this.password = password;
         this.address = new Address();
-        this.ratings = new ArrayList<>();
         this.orders = new ArrayList<>();
     }
 
@@ -56,21 +56,15 @@ public class Customer extends BaseModel {
         this.password = password;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "name='" + name + '\'' +
+                "id = "+ super.getId()+
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", address=" + address +
+                ", address = " + address +
                 '}';
     }
 }

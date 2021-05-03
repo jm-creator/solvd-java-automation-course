@@ -1,28 +1,29 @@
 package com.solvd.connectionPool.models;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "Order")
 public class Order extends BaseModel {
     private double amount;
-    private Customer customer;
     private Restaurant restaurant;
-    private TransactionStatus status;
     private Menu menu;
 
     public Order() {}
 
-    public Order(double amount, Customer customer, Restaurant restaurant, TransactionStatus status, Menu menu) {
+    public Order(double amount, Restaurant restaurant, TransactionStatus status, Menu menu) {
         this.amount = amount;
-        this.customer = customer;
+
         this.restaurant = restaurant;
-        this.status = status;
+
         this.menu = menu;
     }
 
     public Order(Long id, double amount) {
         super(id);
         this.amount = amount;
-        this.customer = new Customer();
+
         this.restaurant = new Restaurant();
-        this.status = new TransactionStatus();
+
         this.menu = new Menu();
     }
 
@@ -34,28 +35,12 @@ public class Order extends BaseModel {
         this.amount = amount;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
     public Restaurant getRestaurant() {
         return restaurant;
     }
 
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
-    }
-
-    public TransactionStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(TransactionStatus status) {
-        this.status = status;
     }
 
     public Menu getMenu() {
@@ -70,9 +55,9 @@ public class Order extends BaseModel {
     public String toString() {
         return "Order{" +
                 "amount=" + amount +
-                ", customer=" + customer +
+
                 ", restaurant=" + restaurant +
-                ", status=" + status +
+
                 ", menu=" + menu +
                 '}';
     }
