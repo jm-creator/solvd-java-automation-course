@@ -5,10 +5,7 @@ import com.solvd.connectionPool.dao.mysqlimpl.CustomerDao;
 import com.solvd.connectionPool.dbpool.App;
 import com.solvd.connectionPool.models.BaseModel;
 import com.solvd.connectionPool.models.Customer;
-import com.solvd.connectionPool.utils.Customers;
-import com.solvd.connectionPool.utils.JaxBList;
-import com.solvd.connectionPool.utils.JaxBParser;
-import com.solvd.connectionPool.utils.StAXParser;
+import com.solvd.connectionPool.utils.*;
 import org.apache.log4j.Logger;
 
 import javax.xml.bind.JAXBContext;
@@ -34,8 +31,10 @@ public class Main {
         stAXParser.parser();
 
 
-       Customers customers = (Customers) JaxBParser.deSerialize(Customers.class);
+        Customers customers = (Customers) JaxBParser.deSerialize(Customers.class);
         LOGGER.info(customers.toString());
+
+
 
     }
 }

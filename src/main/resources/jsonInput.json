@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "name": "Juan Manuel Rovira",
+    "email": "jm@gmail.com",
+    "password": "p4s$w0rd",
+    "Address": "Brasil 233"
+  },
+  {
+    "id": "2",
+    "name": "Eduard Martinez",
+    "email": "edumart@hotmail.com",
+    "password": "p13213",
+    "Address": "San Lorenzo 6223"
+  },
+  {
+    "id": "3",
+    "name": "Pedro Sanchez",
+    "email": "psancez@gmail.com",
+    "password": "p42223",
+    "Address": "Paraguay 333"
+  }
+]

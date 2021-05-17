@@ -1,5 +1,7 @@
 package com.solvd.connectionPool.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,9 +9,13 @@ import java.util.List;
 @XmlRootElement(name = "Customer")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class Customer extends BaseModel {
+    @JsonProperty("name")
     private String name;
+    @JsonProperty("email")
     private String email;
+    @JsonProperty("password")
     private String password;
+    @JsonProperty("Address")
     private Address address;
     @XmlTransient
     private List<Order> orders;

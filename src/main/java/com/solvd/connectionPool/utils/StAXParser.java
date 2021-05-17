@@ -25,7 +25,6 @@ public class StAXParser {
     private boolean bPassword ;
     private boolean bAddress_id;
     private static final String PATH_TO_XML_INPUT = "src/main/resources/xmlInput.xml";
-    private static final String CUSTOMER = "Customer";
     private static final String ID = "id";
     private static final String NAME = "name";
     private static final String EMAIL = "email";

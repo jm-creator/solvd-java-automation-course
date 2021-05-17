@@ -15,7 +15,6 @@ public class JsonParser {
     private static final Logger LOGGER = Logger.getLogger(JsonParser.class);
     private static final String PATH_TO_JSON_OUTPUT = "src/main/resources/jsonOutput.json";
     private static final String PATH_TO_JSON_INPUT = "src/main/resources/jsonInput.json";
-    private static final String PATH_TO_XML_OUTPUT = "src/main/resources/xmlOutput.xml";
     private static ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
 
     public static List<BaseModel> deSerializeJson(Class<? extends BaseModel> classType) {
